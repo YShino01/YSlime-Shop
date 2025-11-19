@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* LIGHT MODE (Not used - default is dark) */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -43,7 +43,7 @@
   --chart-3: 199 60% 45%;
   --chart-4: 199 50% 38%;
   --chart-5: 199 40% 42%;
-  --font-sans: Open Sans, sans-serif;
+  --font-sans: Inter, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
@@ -93,12 +93,12 @@
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
-  --background: 0 0% 8%;
-  --foreground: 0 0% 95%;
-  --border: 0 0% 18%;
+  --background: 0 0% 0%;
+  --foreground: 199 89% 75%;
+  --border: 0 0% 15%;
   --card: 0 0% 10%;
-  --card-foreground: 0 0% 95%;
-  --card-border: 0 0% 14%;
+  --card-foreground: 0 0% 98%;
+  --card-border: 199 89% 48%;
   --sidebar: 0 0% 6%;
   --sidebar-foreground: 0 0% 95%;
   --sidebar-border: 0 0% 10%;
@@ -107,11 +107,11 @@
   --sidebar-accent: 0 0% 12%;
   --sidebar-accent-foreground: 0 0% 95%;
   --sidebar-ring: 199 89% 48%;
-  --popover: 0 0% 12%;
-  --popover-foreground: 0 0% 95%;
-  --popover-border: 0 0% 16%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 199 89% 48%;
   --primary: 199 89% 48%;
-  --primary-foreground: 0 0% 98%;
+  --primary-foreground: 0 0% 0%;
   --secondary: 0 0% 16%;
   --secondary-foreground: 0 0% 95%;
   --muted: 199 5% 14%;
@@ -120,21 +120,21 @@
   --accent-foreground: 199 8% 90%;
   --destructive: 0 84% 45%;
   --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 28%;
+  --input: 0 0% 15%;
   --ring: 199 89% 48%;
   --chart-1: 199 89% 65%;
   --chart-2: 199 70% 60%;
   --chart-3: 199 60% 58%;
   --chart-4: 199 50% 62%;
   --chart-5: 199 40% 56%;
-  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 2px 4px -1px hsl(0 0% 0% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 4px 6px -1px hsl(0 0% 0% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 8px 10px -1px hsl(0 0% 0% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --shadow-2xs: 0px 2px 4px 0px hsl(199 89% 48% / 0.1);
+  --shadow-xs: 0px 2px 4px 0px hsl(199 89% 48% / 0.15);
+  --shadow-sm: 0px 2px 6px 0px hsl(199 89% 48% / 0.2), 0px 1px 2px -1px hsl(199 89% 48% / 0.15);
+  --shadow: 0px 2px 8px 0px hsl(199 89% 48% / 0.2), 0px 1px 2px -1px hsl(199 89% 48% / 0.15);
+  --shadow-md: 0px 4px 12px 0px hsl(199 89% 48% / 0.25), 0px 2px 4px -1px hsl(199 89% 48% / 0.2);
+  --shadow-lg: 0px 6px 16px 0px hsl(199 89% 48% / 0.3), 0px 4px 6px -1px hsl(199 89% 48% / 0.25);
+  --shadow-xl: 0px 8px 20px 0px hsl(199 89% 48% / 0.35), 0px 8px 10px -1px hsl(199 89% 48% / 0.3);
+  --shadow-2xl: 0px 12px 24px 0px hsl(199 89% 48% / 0.4);
 
 /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
@@ -284,5 +284,14 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

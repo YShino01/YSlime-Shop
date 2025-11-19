@@ -1,37 +1,120 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import type { TrackerPackage, Accessory, GalleryImage, ProductData } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getProductData(): Promise<ProductData>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private packages: TrackerPackage[] = [
+    {
+      id: "pkg-5",
+      trackerCount: 5,
+      bodyPlacements: ["Chest", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
+      basePrices: {
+        "ICM-45686": 850.00,
+        "LSM6DSR": 920.00,
+        "LSM6DSV": 980.00,
+      },
+      isRecommended: false,
+    },
+    {
+      id: "pkg-6",
+      trackerCount: 6,
+      label: "Recommended",
+      bodyPlacements: ["Chest", "Hip", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
+      basePrices: {
+        "ICM-45686": 1050.00,
+        "LSM6DSR": 1120.00,
+        "LSM6DSV": 1180.00,
+      },
+      isRecommended: true,
+    },
+    {
+      id: "pkg-7",
+      trackerCount: 7,
+      label: "Advanced",
+      bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
+      basePrices: {
+        "ICM-45686": 1250.00,
+        "LSM6DSR": 1320.00,
+        "LSM6DSV": 1380.00,
+      },
+      isRecommended: false,
+    },
+    {
+      id: "pkg-8",
+      trackerCount: 8,
+      label: "Advanced",
+      bodyPlacements: ["Chest", "Hip", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
+      basePrices: {
+        "ICM-45686": 1450.00,
+        "LSM6DSR": 1520.00,
+        "LSM6DSV": 1580.00,
+      },
+      isRecommended: false,
+    },
+    {
+      id: "pkg-9",
+      trackerCount: 9,
+      label: "Dancer",
+      bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
+      basePrices: {
+        "ICM-45686": 1650.00,
+        "LSM6DSR": 1720.00,
+        "LSM6DSV": 1780.00,
+      },
+      isRecommended: false,
+    },
+  ];
 
-  constructor() {
-    this.users = new Map();
-  }
+  private accessories: Accessory[] = [
+    {
+      id: "strap-1",
+      name: "Elastic Ankle Straps (Pair)",
+      category: "strap",
+      shopeeLink: "https://shopee.com.my/search?keyword=elastic+ankle+straps",
+    },
+    {
+      id: "strap-2",
+      name: "Adjustable Thigh Straps (Pair)",
+      category: "strap",
+      shopeeLink: "https://shopee.com.my/search?keyword=adjustable+thigh+straps",
+    },
+    {
+      id: "strap-3",
+      name: "Chest Strap Mount",
+      category: "strap",
+      shopeeLink: "https://shopee.com.my/search?keyword=chest+strap+mount",
+    },
+    {
+      id: "charger-1",
+      name: "5-Port USB Charger Hub",
+      category: "charger",
+      shopeeLink: "https://shopee.com.my/search?keyword=5+port+usb+charger",
+    },
+    {
+      id: "charger-2",
+      name: "USB-C Charging Cables (5-Pack)",
+      category: "charger",
+      shopeeLink: "https://shopee.com.my/search?keyword=usb+c+charging+cables",
+    },
+  ];
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
+  private galleryImages: GalleryImage[] = [
+    { id: "img-1", url: "", alt: "SlimeVR Tracker - Front View" },
+    { id: "img-2", url: "", alt: "SlimeVR Tracker - PCB Detail" },
+    { id: "img-3", url: "", alt: "Full Body Tracker Setup" },
+    { id: "img-4", url: "", alt: "Tracker with Strap Mount" },
+    { id: "img-5", url: "", alt: "Multiple Trackers Charging" },
+    { id: "img-6", url: "", alt: "Size Comparison" },
+  ];
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async getProductData(): Promise<ProductData> {
+    return {
+      packages: this.packages,
+      accessories: this.accessories,
+      galleryImages: this.galleryImages,
+    };
   }
 }
 
