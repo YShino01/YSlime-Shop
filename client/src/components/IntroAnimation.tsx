@@ -10,10 +10,10 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setStage(1), 1000),    // Show text
-      setTimeout(() => setStage(2), 2500),    // Connect
-      setTimeout(() => setStage(3), 3500),    // Move up
-      setTimeout(() => onComplete(), 5000),   // Complete (increased delay to let header fade in properly)
+      setTimeout(() => setStage(1), 800),     // Fade in logo
+      setTimeout(() => setStage(2), 2000),    // Scale animation
+      setTimeout(() => setStage(3), 3000),    // Start fade out
+      setTimeout(() => onComplete(), 3800),   // Complete
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -21,45 +21,35 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
   return (
     <AnimatePresence>
-      {stage < 4 && (
+      {stage < 3 && (
         <motion.div
           key="intro"
           initial={{ opacity: 1 }}
+          animate={{ opacity: stage >= 3 ? 0 : 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="fixed inset-0 z-50 bg-black flex items-center justify-center"
         >
           <motion.div
-            className="flex items-center gap-4"
-            animate={{
-              y: stage >= 3 ? "-45vh" : 0,
-              scale: stage >= 3 ? 0.4 : 1,
-            }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="flex items-center gap-2"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              data-testid="logo-y"
-            >
-              <svg
-                width="120"
-                height="120"
-                viewBox="0 0 120 120"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-primary"
-              >
-                <path
-                  d="M30 20 L60 70 L60 110 M60 70 L90 20"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.div>
+            <motion.img
+              src="/YSlime_Logo.png"
+              alt="YSlime Logo"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ 
+                opacity: stage >= 1 ? 1 : 0, 
+                scale: stage >= 1 ? 1 : 0.8,
+                rotate: stage >= 2 ? [0, 5, -5, 0] : 0,
+              }}
+              transition={{ 
+                opacity: { duration: 0.8 },
+                scale: { duration: 0.8 },
+                rotate: { duration: 0.6, delay: 0.2 }
+              }}
+              className="w-32 h-32 object-contain"
+              data-testid="logo-intro"
+            />
 
             <motion.span
               initial={{ opacity: 0, y: 20 }}

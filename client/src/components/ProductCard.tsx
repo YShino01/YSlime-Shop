@@ -1,51 +1,29 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import type { TrackerPackage, GyroscopeType } from "@shared/schema";
 import { Check } from "lucide-react";
 
 interface ProductCardProps {
   package: TrackerPackage;
+  selectedGyro: GyroscopeType;
   onPreOrder: (gyroscope: GyroscopeType, price: number) => void;
 }
 
-export function ProductCard({ package: pkg, onPreOrder }: ProductCardProps) {
-  const [selectedGyro, setSelectedGyro] = useState<GyroscopeType>("ICM-45686");
+export function ProductCard({ package: pkg, selectedGyro, onPreOrder }: ProductCardProps) {
   const currentPrice = pkg.basePrices[selectedGyro] || 0;
 
   return (
-    <div className="flex flex-col gap-4 w-full" data-testid={`product-card-${pkg.trackerCount}`}>
-      <div className="flex flex-col gap-2">
-        <label className="text-sm text-muted-foreground">Gyroscope Type</label>
-        <Select value={selectedGyro} onValueChange={(v) => setSelectedGyro(v as GyroscopeType)}>
-          <SelectTrigger className="bg-input border-border" data-testid={`gyro-select-${pkg.trackerCount}`}>
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="ICM-45686" data-testid="gyro-option-ICM-45686">ICM-45686</SelectItem>
-            <SelectItem value="LSM6DSR" data-testid="gyro-option-LSM6DSR">LSM6DSR</SelectItem>
-            <SelectItem value="LSM6DSV" data-testid="gyro-option-LSM6DSV">LSM6DSV</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
+    <div className="flex flex-col gap-4 w-full h-full" data-testid={`product-card-${pkg.trackerCount}`}>
       <Card
-        className={`relative p-6 bg-card border-2 transition-all duration-300 hover:-translate-y-1 ${
+        className={`relative p-6 bg-card border-2 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ${
           pkg.isRecommended ? "border-primary shadow-lg shadow-primary/25" : "border-card-border"
         }`}
       >
         {pkg.label && (
           <Badge
-            className={`absolute -top-3 left-6 ${
+            className={`absolute -top-2.5 right-2 w-fit ${
               pkg.isRecommended
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground"
@@ -56,7 +34,7 @@ export function ProductCard({ package: pkg, onPreOrder }: ProductCardProps) {
           </Badge>
         )}
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 flex-1">
           <div className="text-center">
             <div className="text-6xl font-bold text-primary mb-2" data-testid={`tracker-count-${pkg.trackerCount}`}>
               {pkg.trackerCount}
@@ -64,7 +42,7 @@ export function ProductCard({ package: pkg, onPreOrder }: ProductCardProps) {
             <div className="text-lg text-muted-foreground">Trackers</div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 flex-1">
             <div className="text-sm font-semibold text-card-foreground mb-3">Included Placements:</div>
             <div className="grid grid-cols-1 gap-2">
               {pkg.bodyPlacements.map((placement, idx) => (
