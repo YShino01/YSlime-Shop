@@ -6,9 +6,9 @@ const packages = [
     trackerCount: 5,
     bodyPlacements: ["Chest", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
     basePrices: {
-      "ICM-45686": 850,
-      "LSM6DSR": 920,
-      "LSM6DSV": 980
+      "ICM-45686": 449,
+      "LSM6DSR": 389,
+      "LSM6DSV": 569
     },
     isRecommended: false
   },
@@ -18,9 +18,9 @@ const packages = [
     label: "Recommended",
     bodyPlacements: ["Chest", "Hip", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
     basePrices: {
-      "ICM-45686": 1050,
-      "LSM6DSR": 1120,
-      "LSM6DSV": 1180
+      "ICM-45686": 519,
+      "LSM6DSR": 449,
+      "LSM6DSV": 669
     },
     isRecommended: true
   },
@@ -30,9 +30,9 @@ const packages = [
     label: "Advanced",
     bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
     basePrices: {
-      "ICM-45686": 1250,
-      "LSM6DSR": 1320,
-      "LSM6DSV": 1380
+      "ICM-45686": 599,
+      "LSM6DSR": 509,
+      "LSM6DSV": 769
     },
     isRecommended: false
   },
@@ -42,9 +42,9 @@ const packages = [
     label: "Advanced",
     bodyPlacements: ["Chest", "Hip", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
     basePrices: {
-      "ICM-45686": 1450,
-      "LSM6DSR": 1520,
-      "LSM6DSV": 1580
+      "ICM-45686": 629,
+      "LSM6DSR": 569,
+      "LSM6DSV": 869
     },
     isRecommended: false
   },
@@ -54,9 +54,9 @@ const packages = [
     label: "Dancer",
     bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
     basePrices: {
-      "ICM-45686": 1650,
-      "LSM6DSR": 1720,
-      "LSM6DSV": 1780
+      "ICM-45686": 699,
+      "LSM6DSR": 639,
+      "LSM6DSV": 969
     },
     isRecommended: false
   }
