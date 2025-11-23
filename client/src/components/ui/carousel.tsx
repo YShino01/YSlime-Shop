@@ -198,24 +198,23 @@ const CarouselPrevious = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
+  if (!canScrollPrev) return null
+
   return (
     <Button
       ref={ref}
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        // custom position/style to sit at left edge vertically centered
+        "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover-elevate active-elevate-2 !absolute -left-6 md:-left-12 top-1/2 -translate-y-1/2 !z-20 h-10 w-10 rounded-full bg-card/70 backdrop-blur-sm border border-border/60 text-primary shadow-sm hover:shadow-md hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 active:scale-95 transition-all",
         className
       )}
-      disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <ArrowLeft className="h-5 w-5" />
+      <span className="sr-only">Previous</span>
     </Button>
   )
 })
@@ -227,24 +226,23 @@ const CarouselNext = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
+  if (!canScrollNext) return null
+
   return (
     <Button
       ref={ref}
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+        // custom position/style to sit at right edge vertically centered
+        "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover-elevate active-elevate-2 !absolute -right-6 md:-right-12 top-1/2 -translate-y-1/2 !z-20 h-10 w-10 rounded-full bg-card/70 backdrop-blur-sm border border-border/60 text-primary shadow-sm hover:shadow-md hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 active:scale-95 transition-all",
         className
       )}
-      disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <ArrowRight className="h-5 w-5" />
+      <span className="sr-only">Next</span>
     </Button>
   )
 })

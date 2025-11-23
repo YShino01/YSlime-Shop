@@ -44,7 +44,7 @@ export default function Home() {
                 SlimeVR Trackers
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto px-6">
-                Premium full-body tracking solutions for VR. Choose the perfect package for your needs.
+                Custom-built full-body tracking made reliable, precise, and affordable.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function Home() {
 
           <footer className="border-t border-border py-8 px-6 mt-16">
             <div className="container mx-auto text-center text-muted-foreground">
-              <p>© 2024 YSlime. All rights reserved.</p>
+              <p>© YSlime</p>
             </div>
           </footer>
         </main>

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { SiDiscord, SiShopee } from "react-icons/si";
+import { SiDiscord } from "react-icons/si";
+import { FiShoppingBag } from "react-icons/fi";
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -86,7 +87,7 @@ export function PreOrderPopup({ isOpen, onClose, selectedPackage }: PreOrderPopu
               <div className="flex flex-col gap-4">
                 <Card
                   className="p-6 bg-secondary border-border hover:border-primary hover:bg-primary/10 transition-all cursor-pointer group"
-                  onClick={() => window.open("https://discord.com", "_blank")}
+                  onClick={() => window.open("https://discord.gg/pZCbBwcgRG", "_blank")}
                   data-testid="option-discord-direct"
                 >
                   <div className="flex items-center gap-4">
@@ -102,7 +103,7 @@ export function PreOrderPopup({ isOpen, onClose, selectedPackage }: PreOrderPopu
 
                 <Card
                   className="p-6 bg-secondary border-border hover:border-primary hover:bg-primary/10 transition-all cursor-pointer group"
-                  onClick={() => window.open("https://discord.gg/slimevr", "_blank")}
+                  onClick={() => window.open("https://discord.gg/pZCbBwcgRG", "_blank")}
                   data-testid="option-discord-server"
                 >
                   <div className="flex items-center gap-4">
@@ -118,15 +119,15 @@ export function PreOrderPopup({ isOpen, onClose, selectedPackage }: PreOrderPopu
 
                 <Card
                   className="p-6 bg-secondary border-border hover:border-primary hover:bg-primary/10 transition-all cursor-pointer group"
-                  onClick={() => window.open("https://shopee.com.my", "_blank")}
-                  data-testid="option-shopee"
+                  onClick={() => window.open("https://www.carousell.com.my/u/hafizudin3211/", "_blank")}
+                  data-testid="option-carousell"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                      <SiShopee className="w-6 h-6 text-primary" />
+                      <FiShoppingBag className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-card-foreground">Shopee / Carousell</h3>
+                      <h3 className="font-semibold text-card-foreground">Carousell</h3>
                       <p className="text-sm text-muted-foreground">Browse marketplace listings</p>
                     </div>
                   </div>
