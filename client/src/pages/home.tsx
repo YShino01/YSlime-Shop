@@ -7,6 +7,7 @@ import { ProductSlider } from "@/components/ProductSlider";
 import { PreOrderPopup } from "@/components/PreOrderPopup";
 import { Gallery } from "@/components/Gallery";
 import { AccessoriesSection } from "@/components/AccessoriesSection";
+import { ProductDetail } from "@/components/ProductDetail";
 import type { ProductData, TrackerPackage, GyroscopeType } from "@shared/schema";
 
 export default function Home() {
@@ -61,6 +62,7 @@ export default function Home() {
             <>
               <Gallery images={data.galleryImages} />
               <AccessoriesSection accessories={data.accessories} />
+              <ProductDetail details={data.details} />
             </>
           )}
 

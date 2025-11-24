@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { ProductCard } from "./ProductCard";
 import type { TrackerPackage, GyroscopeType } from "@shared/schema";
+import { gyroscopeLabels } from "@shared/schema";
 
 interface ProductSliderProps {
   packages: TrackerPackage[];
@@ -106,9 +107,9 @@ export function ProductSlider({ packages, onPreOrder }: ProductSliderProps) {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="ICM-45686" data-testid="gyro-option-ICM-45686">ICM-45686</SelectItem>
-              <SelectItem value="LSM6DSR" data-testid="gyro-option-LSM6DSR">LSM6DSR</SelectItem>
-              <SelectItem value="LSM6DSV" data-testid="gyro-option-LSM6DSV">LSM6DSV</SelectItem>
+              <SelectItem value="ICM-45686" data-testid="gyro-option-ICM-45686">{gyroscopeLabels["ICM-45686"]}</SelectItem>
+              <SelectItem value="LSM6DSR" data-testid="gyro-option-LSM6DSR">{gyroscopeLabels["LSM6DSR"]}</SelectItem>
+              <SelectItem value="LSM6DSV" data-testid="gyro-option-LSM6DSV">{gyroscopeLabels["LSM6DSV"]}</SelectItem>
             </SelectContent>
           </Select>
         </div>

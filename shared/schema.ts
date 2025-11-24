@@ -5,6 +5,13 @@ export const gyroscopeTypes = ["ICM-45686", "LSM6DSR", "LSM6DSV"] as const;
 
 export type GyroscopeType = typeof gyroscopeTypes[number];
 
+// Gyroscope labels for display
+export const gyroscopeLabels: Record<GyroscopeType, string> = {
+  "ICM-45686": "ICM-45686 - Recommended",
+  "LSM6DSR": "LSM6DSR - Cheapest",
+  "LSM6DSV": "LSM6DSV - High-end",
+};
+
 // Tracker package schema
 export const trackerPackageSchema = z.object({
   id: z.string(),
@@ -37,11 +44,22 @@ export const galleryImageSchema = z.object({
 
 export type GalleryImage = z.infer<typeof galleryImageSchema>;
 
+// Product detail feature schema
+export const productDetailFeatureSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  icon: z.string().optional(), // name of lucide icon (optional)
+});
+
+export type ProductDetailFeature = z.infer<typeof productDetailFeatureSchema>;
+
 // Product data response
 export const productDataSchema = z.object({
   packages: z.array(trackerPackageSchema),
   accessories: z.array(accessorySchema),
   galleryImages: z.array(galleryImageSchema),
+  details: z.array(productDetailFeatureSchema),
 });
 
 export type ProductData = z.infer<typeof productDataSchema>;

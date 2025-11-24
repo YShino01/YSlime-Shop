@@ -1,4 +1,4 @@
-import type { TrackerPackage, Accessory, GalleryImage, ProductData } from "@shared/schema";
+import type { TrackerPackage, Accessory, GalleryImage, ProductData, ProductDetailFeature } from "@shared/schema";
 
 export interface IStorage {
   getProductData(): Promise<ProductData>;
@@ -29,39 +29,51 @@ export class MemStorage implements IStorage {
       },
       isRecommended: true,
     },
-    {
-      id: "pkg-7",
-      trackerCount: 7,
-      label: "Advanced",
-      bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
-      basePrices: {
-        "ICM-45686": 599.00,
-        "LSM6DSR": 509.00,
-        "LSM6DSV": 769.00,
-      },
-      isRecommended: false,
-    },
+    // {
+    //   id: "pkg-7",
+    //   trackerCount: 7,
+    //   label: "Advanced",
+    //   bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle"],
+    //   basePrices: {
+    //     "ICM-45686": 599.00,
+    //     "LSM6DSR": 509.00,
+    //     "LSM6DSV": 769.00,
+    //   },
+    //   isRecommended: false,
+    // },
     {
       id: "pkg-8",
       trackerCount: 8,
-      label: "Advanced",
+      label: "Dancer", // label: "Advanced",
       bodyPlacements: ["Chest", "Hip", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
       basePrices: {
-        "ICM-45686": 629.00,
+        "ICM-45686": 669.00,
         "LSM6DSR": 569.00,
         "LSM6DSV": 869.00,
       },
       isRecommended: false,
     },
+    // {
+    //   id: "pkg-9",
+    //   trackerCount: 9,
+    //   label: "Dancer",
+    //   bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
+    //   basePrices: {
+    //     "ICM-45686": 759.00,
+    //     "LSM6DSR": 639.00,
+    //     "LSM6DSV": 969.00,
+    //   },
+    //   isRecommended: false,
+    // },
     {
-      id: "pkg-9",
-      trackerCount: 9,
-      label: "Dancer",
-      bodyPlacements: ["Chest", "Hip", "Waist", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
+      id: "pkg-10",
+      trackerCount: 10,
+      label: "Ultimate",
+      bodyPlacements: ["Chest", "Hip", "Left Upper Arm", "Right Upper Arm", "Left Thigh", "Right Thigh", "Left Ankle", "Right Ankle", "Left Foot", "Right Foot"],
       basePrices: {
-        "ICM-45686": 699.00,
-        "LSM6DSR": 639.00,
-        "LSM6DSV": 969.00,
+        "ICM-45686": 819.00,
+        "LSM6DSR": 699.00,
+        "LSM6DSV": 1069.00,
       },
       isRecommended: false,
     },
@@ -116,11 +128,51 @@ export class MemStorage implements IStorage {
     { id: "img-12", url: "https://cdn.discordapp.com/attachments/902612839758458921/1442272420349349979/velcro_strap.png?ex=6924d45d&is=692382dd&hm=a9d580ef7a7f7dd5606abe149e7d90ef06402f85da5cbb468f93308a6f4c179b&", alt: "Image-6" },
   ];
 
+  private details: ProductDetailFeature[] = [
+    {
+      id: "wireless",
+      title: "Dedicated Wireless Link",
+      description: "nRF52840 2.4GHz receiver dongle – no WiFi required, low latency and stable tracking.",
+      icon: "WifiOff",
+    },
+    {
+      id: "imu",
+      title: "Precision IMU Sensors",
+      description: "LSM6DSV / LSM6DSR batches provide accurate 6-axis motion data for full-body presence.",
+      icon: "Crosshair",
+    },
+    {
+      id: "design",
+      title: "Compact Durable Design",
+      description: "Lightweight enclosure with strap / velcro mounting – comfortable for long VR sessions.",
+      icon: "Box",
+    },
+    {
+      id: "power",
+      title: "USB-C Charging",
+      description: "Rechargeable battery with simple multi-port hub charging – grab & go convenience.",
+      icon: "Battery",
+    },
+    {
+      id: "regional",
+      title: "Malaysia Only",
+      description: "Locally assembled & tested – currently shipping exclusively within Malaysia.",
+      icon: "MapPin",
+    },
+    {
+      id: "assembly",
+      title: "Hand-Assembled & Tested",
+      description: "Each unit validated before shipping to ensure reliable calibration & performance.",
+      icon: "CheckCircle",
+    },
+  ];
+
   async getProductData(): Promise<ProductData> {
     return {
       packages: this.packages,
       accessories: this.accessories,
       galleryImages: this.galleryImages,
+      details: this.details,
     };
   }
 }

@@ -74,6 +74,13 @@ export function ProductCard({ package: pkg, selectedGyro, onPreOrder }: ProductC
                 <div className="text-sm text-muted-foreground mt-1">MYR</div>
               </motion.div>
             </AnimatePresence>
+            
+            <div className="mt-3 text-[11px] text-amber-700 dark:text-amber-600 flex items-start gap-1.5 px-2">
+              <svg aria-hidden className="w-3 h-3 mt-[2px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 9v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              <span>Includes trackers only – accessories sold separately below.</span>
+            </div>
           </div>
 
           <Button

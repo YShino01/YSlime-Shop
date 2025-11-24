@@ -51,15 +51,15 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
               data-testid="logo-intro"
             />
 
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
+            <motion.img
+              src="/Yoshino_Slime.png"
+              alt="Slime"
+              initial={{ opacity: 0, y: -2-0 }}
               animate={{ opacity: stage >= 1 ? 1 : 0, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-6xl font-bold text-primary tracking-wide whitespace-nowrap"
+              className="w-48 h-48 object-contain -ml-6 mt-8"
               data-testid="text-slime"
-            >
-              Slime
-            </motion.span>
+            />
           </motion.div>
         </motion.div>
       )}

@@ -21,13 +21,12 @@ export function Header({ show }: HeaderProps) {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <img
-                  src="/YSlime_Logo.png"
+                  src="/Yoshino_Slime_VR_Full.png"
                   alt="YSlime Logo"
-                  width={32}
-                  height={32}
+                  width={96}
+                  height={96}
                   className="object-contain"
                 />
-                <span className="text-2xl font-bold text-primary tracking-wide">Slime</span>
               </div>
               <ThemeToggle />
             </div>
