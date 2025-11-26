@@ -113,19 +113,19 @@ export class MemStorage implements IStorage {
   ];
 
   private galleryImages: GalleryImage[] = [
-    { id: "img-1", url: "/front%20view2.png", alt: "SlimeVR Tracker - Front View" },
-    { id: "img-2", url: "/size2.png", alt: "SlimeVR Tracker - PCB Detail" },
-    { id: "img-3", url: "/size.png", alt: "Full Body Tracker Setup" },
-    { id: "img-4", url: "/case.png", alt: "Tracker with Strap Mount" },
-    { id: "img-5", url: "/case2.png", alt: "Multiple Trackers Charging" },
-    { id: "img-6", url: "/velcro.png", alt: "Size Comparison" },
+    { id: "img-1", url: "https://i.imgur.com/gMTQgzS.png", alt: "SlimeVR Tracker - Front View" },
+    { id: "img-2", url: "https://i.imgur.com/mi25NID.png", alt: "SlimeVR Tracker - PCB Detail" },
+    { id: "img-3", url: "https://i.imgur.com/gMTQgzS.png", alt: "Full Body Tracker Setup" },
+    { id: "img-4", url: "https://i.imgur.com/dFnD0Ew.png", alt: "Tracker with Strap Mount" },
+    { id: "img-5", url: "https://i.imgur.com/eAnDpZo.png", alt: "Multiple Trackers Charging" },
+    { id: "img-6", url: "https://i.imgur.com/NCN4BmN.png", alt: "Size Comparison" },
     // Additional placeholder slots (empty URLs) so gallery has room for more images
-    { id: "img-7", url: "/inside.png", alt: "Image" },
-    { id: "img-8", url: "/receiver.png", alt: "Image-2" },
-    { id: "img-9", url: "/receiver3.png", alt: "Image-3" },
-    { id: "img-10", url: "/charging.png", alt: "Image-4" },
-    { id: "img-11", url: "/velcro%20strap2.png", alt: "Image-5" },
-    { id: "img-12", url: "/velcro%20strap.png", alt: "Image-6" },
+    { id: "img-7", url: "https://i.imgur.com/G482zr1.png", alt: "Image" },
+    { id: "img-8", url: "https://i.imgur.com/B60Rj8m.png", alt: "Image-2" },
+    { id: "img-9", url: "https://i.imgur.com/MzAw9L3.png", alt: "Image-3" },
+    { id: "img-10", url: "https://i.imgur.com/sBxGYFv.png", alt: "Image-4" },
+    { id: "img-11", url: "https://i.imgur.com/0KhdLkt.png", alt: "Image-5" },
+    { id: "img-12", url: "https://i.imgur.com/lAOxGsH.png", alt: "Image-6" },
   ];
 
   private details: ProductDetailFeature[] = [
